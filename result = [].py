@@ -1,21 +1,26 @@
 result = []
-
 def divider(a, b):
     try:
-        if a < b:
-            raise ValueError("a must be greater than or equal to b")
-        if b > 100:
-            raise IndexError("b must be 100 or less")
-        return a / b
+         if a < b:
+             raise ValueError
+         if b > 100:
+             raise IndexError
+         return a/b
+    except ValueError as e:
+         return f"ValueError - {e}"
+    except IndexError as e :
+         return f"IndexError - {e}"
     except Exception as e:
-        print("Error: {e}")
-        return Noneы
-
-data = {10: 2, 2: 5, "123": 4, 18: 0, []: 15, 8: 4}
-
-for key in data:
-    res = divider(key, data[key])
-    if res is not None:
+        return f"Exception - {e}"
+data ={10:2, 2:5, "123":4, 18:0, '[]':15, 8:4}
+try:
+    for key in data:
+        res = divider (key, data[key])
         result.append(res)
-
-print(result)
+except:
+    print("!!!!")
+"""
+for key in result:
+    print(key)
+"""
+print("\n".join(result))
